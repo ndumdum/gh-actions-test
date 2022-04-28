@@ -1,3 +1,4 @@
+"""Is this a module docstring?"""
 import time
 
 
