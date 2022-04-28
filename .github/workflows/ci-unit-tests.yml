@@ -4,10 +4,11 @@ on: [push]
 
 jobs:
   lint:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.7.10]
-      steps:
+    steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
@@ -18,5 +19,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install pylint
       - name: lint with pylin
-        run: pylint --fail-under=10 ${PWD}src
+        run: pylint --fail-under=10 ${PWD}/src
       
